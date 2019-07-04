@@ -26,6 +26,16 @@ public class User extends Entity {
 	
 	// the passord of the user
 	private String password;
+	
+	// the email of the user
+	private String email;
+	
+	// the telefone of the user
+	private int telefone;
+	
+	// the name of the user account
+	private String name_account;
+	
 
 	/**
 	 * 
@@ -35,10 +45,13 @@ public class User extends Entity {
 	 * @param name the name of the user
 	 * @param password the password of the user
 	 */
-	public User(long id, String name, String password) {
+	public User(long id, String name, String password,String email, int telefone, String name_account) {
 		super(id);
-		this.name = name;
-		this.password = password;
+		this.setName(name);
+		this.setPassword(password);
+		this.setEmail(email);
+		this.setName_account(name_account);
+		this.setTelefone(telefone);
 	}
 
 	/**
@@ -79,6 +92,30 @@ public class User extends Entity {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(int telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getName_account() {
+		return name_account;
+	}
+
+	public void setName_account(String name_account) {
+		this.name_account = name_account;
 	}
 
 }

@@ -25,7 +25,7 @@ import br.edu.ifpe.igarassu.ipi.poo.usn.data.entity.user.User;
  */
 public class TestJSON {
 	public static void main(String[] args) {
-		User usuario = new User(10, "Carla", "312");
+		User usuario = new User(10, "Carla", "312","asdasda",899999,"@asdsd");
 
 		ObjectMapper mapper = new ObjectMapper();
 		

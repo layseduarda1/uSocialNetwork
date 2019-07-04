@@ -59,11 +59,15 @@ public class AddUserHandler extends AbstractHandler {
 			// gets the data nedded to crate a new user
 			String name = parameters.get("name").toString();
 			String password = parameters.get("password").toString();
+			String email = parameters.get("email").toString();
+			int telefone = Integer.parseInt((String) parameters.get("telefone"));
+			String name_account = parameters.get("name_account").toString();
+			
 			int id = super.getFacade().numberOfUsers();
 
-			System.out.println("add user " + id + " | " + name + " | " + password);
+			System.out.println("add user " + id + " | " + name + " | " + password + " | " + email + " | " + telefone + " | "+ name_account );
 
-			User newUser = new User(id, name, password);
+			User newUser = new User(id, name, password, email, telefone, name_account);
 
 			// TODO handle errors correctly
 

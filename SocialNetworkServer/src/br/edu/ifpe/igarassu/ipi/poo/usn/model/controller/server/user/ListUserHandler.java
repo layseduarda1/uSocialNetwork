@@ -64,6 +64,14 @@ public class ListUserHandler extends AbstractHandler {
 			String response = mapper.writeValueAsString(users);
 
 			System.out.println(response);
+			exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+			
+			if(exchange.getRequestMethod().equalsIgnoreCase("OPTION")) {
+				exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, OPTIONS");
+	            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type,Authorization");
+	            exchange.sendResponseHeaders(204, -1);
+	            return;
+			}
 			exchange.sendResponseHeaders(200, response.length());
 			OutputStream os = exchange.getResponseBody();
 			os.write(response.getBytes());
