@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 
 import br.edu.ifpe.igarassu.ipi.poo.usn.data.entity.post.Post;
+import br.edu.ifpe.igarassu.ipi.poo.usn.model.controller.PostNetworkFacade;
 import br.edu.ifpe.igarassu.ipi.poo.usn.model.controller.PostSocialNetworkFacade;
 import br.edu.ifpe.igarassu.ipi.poo.usn.model.controller.UserSocialNetworkFacade;
 import br.edu.ifpe.igarassu.ipi.poo.usn.model.controller.server.AbstractHandlerPost;
@@ -15,7 +16,7 @@ import br.edu.ifpe.igarassu.ipi.poo.usn.model.controller.server.AbstractHandlerP
 public class ListPostHandler extends AbstractHandlerPost{
 
 
-	public ListPostHandler(PostSocialNetworkFacade facade) {
+	public ListPostHandler(PostNetworkFacade facade) {
 		super(facade);
 	}
 
@@ -32,7 +33,7 @@ public class ListPostHandler extends AbstractHandlerPost{
 			
 			String response = mapper.writeValueAsString(post);
 			
-			//System.out.println(response);
+			System.out.println(response);
 			ex.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
 			
 			if(ex.getRequestMethod().equalsIgnoreCase("OPTION")) {
@@ -50,7 +51,13 @@ public class ListPostHandler extends AbstractHandlerPost{
 		}catch(Exception e) {
 			e.printStackTrace();
 			
-			//ex.sendResponseHeaders(401, response.length);
+			String response ="Failure";
+			
+			ex.sendResponseHeaders(401, response.length());
+			
+			OutputStream os = ex.getResponseBody();
+			os.write(response.getBytes());
+			os.close();
 			
 		}
 		

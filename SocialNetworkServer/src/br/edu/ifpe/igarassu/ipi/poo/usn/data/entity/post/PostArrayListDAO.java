@@ -25,6 +25,12 @@ public class PostArrayListDAO extends ArrayListDAO<Post> implements PostDAO{
 		return post;
 	}
 
+	@Override
+	public void removeById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 

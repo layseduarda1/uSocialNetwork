@@ -20,21 +20,22 @@ import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
+import br.edu.ifpe.igarassu.ipi.poo.usn.model.controller.PostNetworkFacade;
 import br.edu.ifpe.igarassu.ipi.poo.usn.model.controller.PostSocialNetworkFacade;
 
 public abstract class AbstractHandlerPost implements HttpHandler{
 	
 	
-	private PostSocialNetworkFacade  facade = null;
+	private PostNetworkFacade  facade = null;
 	
 	private ObjectMapper mapper = new ObjectMapper();
 	
 	
-	public AbstractHandlerPost(PostSocialNetworkFacade facade) {
+	public AbstractHandlerPost(PostNetworkFacade facade) {
 		this.facade = facade;
 	}
 	
-	public PostSocialNetworkFacade getFacade() {
+	public PostNetworkFacade getFacade() {
 		return this.facade;
 	}
 	

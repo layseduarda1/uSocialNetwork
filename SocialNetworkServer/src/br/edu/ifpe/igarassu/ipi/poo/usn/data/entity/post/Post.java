@@ -36,7 +36,6 @@ public class Post extends Entity{
 	}
 
 
-
 	public int getId_user() {
 		return id_user;
 	}
