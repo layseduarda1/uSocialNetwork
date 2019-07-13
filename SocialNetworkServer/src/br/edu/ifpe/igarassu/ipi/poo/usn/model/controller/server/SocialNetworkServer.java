@@ -46,7 +46,7 @@ public class SocialNetworkServer {
 		populateUsers(facade);
 		popPost(facadep);
 
-		HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+		HttpServer server = HttpServer.create(new InetSocketAddress(3000), 0);
 
 		// each request has its own handler 
 		server.createContext("/", new RootHandler());

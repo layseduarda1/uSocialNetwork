@@ -55,6 +55,7 @@ public class AddUserHandler extends AbstractHandler {
 
 			// get the post metadata
 			Map<String, Object> parameters = parsePostParameters(exchange);
+			System.out.println(parameters);
 
 			// gets the data nedded to crate a new user
 			String name = parameters.get("name").toString();
